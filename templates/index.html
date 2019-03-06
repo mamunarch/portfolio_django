@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Mamun | Home
+{% endblock title %}
+
+{% block body %}
+
+    <!-- home_banner_part start -->
+    <section class="container-fluid home_banner_part" style="background-image: url({% for background in background %}'{{ background.home_banner.url }}'{% endfor %});">
+        <div class="banner_content">
+            <h1>LOOKING FOR A WEB EXPERT?</h1>
+            <p>Look no more. I'm a web design &amp; development specialist.</p>
+            <a href="#home_page_intro">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>     
+            </a>
+        </div>
+    </section>
+    <!-- home_banner_part end -->
+    
+    <!-- home_page_intro start -->
+    <section id="home_page_intro" class="container-fluid home_page_intro">
+        <div class="container">
+            <div class="row">
+                <p>I am a Dajngo(Python) developer &amp; Web designer. I love to code, have a knack for design, and have built many successful websites and applications with Django. I am coding from Dhaka, Bangladesh.</p>
+            </div>
+        </div>
+    </section>
+    <!-- home_page_intro end -->
+    
+    <!-- latestwork_part start -->
+    <section class="container-fluid home_latestwork_part">
+        <div class="container">
+            <div class="row">
+                <div class="latestwork_header">
+                   <h3>My Latest Work</h3>
+                   <p>Take a look at some of my recent projects.</p>
+                   <a href="{% url "project:list" %}" class="button hvr-bounce-to-right">VIEW ALL</a>
+                </div>
+                {% for proj in proj|slice:":6" %}
+                <div class="col-md-4 col-6">
+                   <a href="{% url 'project:detail' pk=proj.pk %}">
+                       <div class="project">
+                           <img src="{{ proj.image.url }}" alt="panzura-thumb.jpg">
+                           <div class="overlay">
+                               <ul>
+                                  <li><h4>{{ proj.title }}</h4></li>
+                                   <li><h5>{{ proj.summery }}</h5></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="clr"></div>
+    </section>
+    <!-- latestwork_part end -->
+    
+    <!-- service_part start -->
+    <section class="container-fluid service_part" style="background-image: url({% for background in background %}'{{ background.service_bg.url }}'{% endfor %});">
+        <div class="container">
+            <h3 class="service_title">My Services</h3>
+            <p class="service_title_p">Let's build together.</p>
+            <div class="row">
+                
+                <div class="col-md-4">
+                    <div class="service">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <h4 class="service_header">RESEARCH</h4>
+                        <p class="service_description">Understand the client’s subject matter completely and build on the knowledge related to it, becoming intimately familiar with the subject matter. Determine methods to address the specific customer’s needs and requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service">
+                        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                        <h4 class="service_header">CREATIVITY</h4>
+                        <p class="service_description">Experience matters. I've shown my rigor. I'm backed by a design and development team who are less assumptive and more disruptive.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service">
+                        <i class="fa fa-connectdevelop" aria-hidden="true"></i>
+                        <h4 class="service_header">Develop</h4>
+                        <p class="service_description">Findings from the research and design phases are utilized for the production of specific products including materials, systems, and methods. Engineer utilizing the research and designs to produce commercial products for the customer.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- service_part end -->
+    
+    <!-- blog_part start -->
+    <section class="container-fluid home_blog_part">
+        <div class="container">
+            <div class="row">
+                <div class="blog_header">
+                   <h3>From the Blog</h3>
+                   <p>I write regularly about code, design &amp; life.</p>
+                   <a href="{% url "blog:list" %}" class="button hvr-bounce-to-right">VIEW ALL</a>
+                </div>
+                
+                {% for post in post %}
+                {% if post.featured %}
+                <div class="col-12 blog_post">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-2">
+                            <a class="post_img" href="{% url "blog:detail" pk=post.pk %}">
+                                <div class="blog_img" style="background-image: url('{{ post.image.url }}')"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-9 col-lg-10">
+                            <a href="{% url "blog:detail" pk=post.pk %}" class="blog_title">{{ post.title }}</a>
+                            <p class="post_info">Posted on {{ post.pub_date }} in <span>{{ post.category }} | 4 Comments</span></p>
+                            <p class="post">{{ post.short_desc }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                                
+            </div>
+        </div>
+    </section>
+    <!-- blog_part end -->
+    
+    <!--common_contact_part start-->
+    <section class="container-fluid common_contact_part text-center" style="background-image: url({% for background in background %}'{{ background.contact_home.url }}'{% endfor %});">
+        <div class="container">
+            <p>Trust your project in the hands of experts. I'm head of a nimble group of designers and developers whose commitment to quality is unrelenting. Let's start the conversation.</p>
+        
+            <a class="contact-hvr-bounce-to-right" href="#" data-toggle="modal" data-target="#myModal">CONTACT ME</a>
+        </div>
+    </section>
+    <!--common_contact_part end-->
+    
+    <!-- recommendation_part start -->
+    <section class="container-fluid recommendation_part">
+        <div class="container">
+            <div class="row">
+                <div class="recommendation_header text-center">
+                   <h3>A Few Recommendations</h3>
+                   <p>Quotes from my Mentors</p>
+               </div>
+           </div>
+               
+           <div id="recommendation_auto_play" class="row">
+              {% for reco in recommendation %}
+               <div class="col-md-3">
+                   <div class="recommendation text-center">
+                       <img src="{{ reco.image.url }}" alt="{{ reco.image }}">
+                       <p>{{ reco.comment }}</p>
+                       <h5>- {{ reco.name }}</h5>
+                   </div>
+               </div>
+               {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- recommendation_part end -->
+
+{% endblock body %}

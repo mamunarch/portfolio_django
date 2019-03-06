@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Mamun | Blog
+{% endblock title %}
+
+{% block body %}
+    
+    <!-- common_banner_part start -->
+    <section class="container-fluid common_banner_part text-center" style="background-image: url({% for background in background %}'{{ background.blog_banner.url }}'{% endfor %}); display:table;">
+        <h1>{Keystrokes}</h1>
+        <p>Life + Code + Design</p>
+    </section>
+    <!-- common_banner_part end -->
+
+    <!-- blog_part start -->
+    <section class="container-fluid blog_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 side_bar">
+                    <div class="filter">
+                        <h2>Filter Posts</h2>
+                        <h3>By Category or Tag</h3>
+                        <a class="toggle_icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="blog_type">
+                        <div class="category">
+                            <ul class="filter_key">
+                                <li id="ShowAllModules" class="all active" data-filter="*">All 4 Posts</li>
+                                <input id="ModuleSearch" type="search" name="search" placeholder="Search..(Title)" data-search>
+                                <h5>Category</h5>
+                                <li data-filter=".1">Web Development</li>
+                                <li data-filter=".2">Programming</li>
+                                <li data-filter=".3">Hardware</li>
+                                <li data-filter=".4">Dev-Ops</li>
+                            </ul>
+                            <h6>See all</h6>
+                        </div>
+                        <div class="tags">
+                            <h5>Tags</h5>
+                            <ul class="filter_key">
+                                <li data-filter=".django">Django</li>
+                                <li data-filter=".mysql">MYSQL</li>
+                                <li data-filter=".wp">WP</li>
+                                <li data-filter=".php">PHP</li>
+                            </ul>
+                            <h6>See all</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 post_container">
+                    {% for post in post %}
+                    <div class="single_post {{ post.data_filter }}">
+                        <div class="col-12">
+                            <a class="blog_img_container" href="{% url 'blog:detail' pk=post.pk %}">
+                                <div class="blog_img" style="background-image: url('{{ post.image.url }}')"></div>
+                            </a>
+                        </div>
+                        <div class="col-12 blog_post">
+                           <p class="post_info">{{ post.pub_date }}</p>
+                           <a href="{% url 'blog:detail' pk=post.pk %}" class="blog_title">{{ post.title }}</a>
+                           <p class="post">{{ post.short_desc }}</p>
+                           <p class="category_tag"><a href="#">{{ post.category }}</a> | <a href="#">{{ post.tag }}</a></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </section>
+    <!-- blog_part end -->
+    
+{% endblock body %}
+
+{% block js %}
+    <!-- isotop -->
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+{% endblock js %}

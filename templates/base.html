@@ -1,0 +1,165 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.v4.2.1.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.v4.7.0.min.css' %}">
+    
+    <!--slick theme start-->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+  	<!--slick theme end-->
+   
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}"/>
+    
+    <!--custom css-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body> 
+
+    <!-- side_menu start -->
+    <div id="Sidenav" class="side_menu">
+       <i class="fa fa-times-circle-o close_icon" aria-hidden="true" onclick="closeNav()"></i>
+       <ul class="nav_list">
+           <li><a class="active" href="{% url "home" %}">HOME</a></li>
+           <li><a href="{% url "project:list" %}">PROJECTS</a></li>
+           <li><a href="{% url "blog:list" %}">BLOG</a></li>
+           <li><a href="#" data-toggle="modal" data-target="#myModal" onclick="closeNav()">CONTACT</a></li>
+       </ul>
+       <div class="widgets">
+           <p>I'm a Bangladesh based developer and designer.</p>
+       </div>
+       <ul class="social_icon">
+           <li><a target="blank" href="https://github.com/mamunarch"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+           <li><a target="blank" href="https://web.facebook.com/mamun.ahmed1987"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+           <li><a target="blank" href="https://www.linkedin.com/in/mamun-ahmed-b62a72a0/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+           <li><a target="blank" href="https://plus.google.com/u/0/113888953358462122565"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+           <li><a target="blank" href="https://twitter.com/Mamun_ahmed07"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+       </ul>
+   </div>
+    <!-- side_menu end -->
+    
+    <!-- common_top_bar start -->
+    <div class="common_top_bar">
+        <div class="site_logo">
+            <a href="{% url "home" %}">
+                <img src="{% static 'images/mamun.png' %}" alt="">
+            </a>
+        </div>
+        <div class="m_icon">
+            <span class="menu-icon float-right" onclick="openNav()">&#9776;</span>
+        </div>
+    </div>    
+    <!-- common_top_bar end -->
+    
+    {% block body %}
+        
+    {% endblock body %}
+
+    
+    <!-- contact_part start -->
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header common_contact_part text-center" style="background-image: url({% for background in background %}'{{ background.contact_modal.url }}'{% endfor %});">
+                    <div class="container">
+                        <h2>Great Results</h2>
+                        <h2>~ Since 2018 ~</h2>
+                    </div>
+                </div>
+
+                <!-- Modal body -->
+                <div class="container">
+                    <div class="modal-body">
+                      <div class="contact_header text-center">
+                           <h3 class="modal-title">Get in Touch</h3>
+                           <p class="modal_info">Whether you would like my services for a project, get extra information on any of my work, ask me about this site or just say hello then I would love to hear from you.</p>
+                       </div>
+
+                       <form action="" class="contact_form">
+                            <label for="f_name">Name<span>*</span></label>
+                            <input type="text" id="f_name" placeholder="First name ..." required>
+
+                            <input type="text" id="l_name" placeholder="Last name ...">
+
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label for="email">Email<span>*</span></label>
+                                    <input type="email" id="email" placeholder="Email ..." required>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="p_numb">Phone</label>
+                                    <input type="tel" id="p_numb" placeholder="Phone Number ...">
+                                </div>
+                            </div>
+
+                            <label for="op_type">Reason for Contact<span>*</span></label>
+                            <select id="op_type" name="">
+                                <option value="nothing">--Please Select--</option>
+                                <option value="project">I have an upcoming project</option>
+                                <option value="connect">I want to connect</option>
+                                <option value="question">I have a technical question</option>
+                            </select>
+
+                            <div id="op_category">
+                                <button type="button" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact_part end -->
+   
+    <!--footer_part start-->
+    <section class="container-fluid footer_part text-center">
+        <div class="container">
+            <p>{% now 'Y' %} © <a href="{% url "home" %}"><b>Mamun Ahmed</b></a> All Right Reserved.</p>
+        </div>
+        <div class="clr"></div>
+    </section>
+    <!--footer_part end-->
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min-v1.14.6.js' %}"></script>
+    <script src="{% static 'js/bootstrap.v4.2.1.min.js' %}"></script>
+    
+    <!-- slick -->
+    <script src="{% static 'js/slick.js' %}"></script>
+    {% block js %}
+        
+    {% endblock js %}
+    <!-- scroll to top js-->
+    <script src="{% static 'js/topbutton.min.js' %}"></script>
+    <script>
+	    $(document).ready(function(){
+            //Top Button
+            $.topbutton({
+                html : '<i class="fa fa-angle-double-up" aria-hidden="true"></i>',      //String
+                css : "width:50px; height:50px; background:rgba(181, 156, 128, 0.8); border:none; font-size:30px;",  //String
+                scrollAndShow : true,    //Boolean
+                scrollSpeed : 400         //Number
+            });
+
+        });
+	</script>
+    
+    <!--custom js-->
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>

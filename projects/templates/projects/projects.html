@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Mamun | Projects
+{% endblock title %}
+
+{% block body %}
+    
+    <!-- common_banner_part start -->
+    <section class="container-fluid common_banner_part text-center" style="background-image: url({% for background in background %}'{{ background.project_banner.url }}'{% endfor %});">
+        <h2>Experience Matters</h2>
+    </section>
+    <!-- common_banner_part end -->
+    
+    <!-- latest_work_part start -->
+    <div class="container-fluid latest_work_part">
+        <div class="container">
+            <!-- Filter Controls - Simple Mode -->
+            <div class="row text-center">
+                <div class="filter">
+                    <h2>Filter Projects</h2>
+                    <h3>By Category</h3>
+                    <a class="toggle_icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <ul class="simplefilter">
+                    <li class="fltr-controls hvr-bounce-to-right active" data-filter="all">All</li>
+                    <li class="fltr-controls hvr-bounce-to-right" data-filter="1">Django Project</li>
+                    <li class="fltr-controls hvr-bounce-to-right" data-filter="2">Web Design</li>
+                    <li class="fltr-controls hvr-bounce-to-right" data-filter="3">PSD Template</li>
+                    <li class="fltr-controls hvr-bounce-to-right" data-filter="4">WORDPRESS</li>
+                </ul>
+            </div>
+
+            <!-- Search control -->
+            <div class="row search-row">
+                <input type="search" class="fltr-controls filtr-search" placeholder="Search Projects..." name="filtr-search" data-search>
+            </div>
+
+            <div class="row push-down">
+                <div class="filtr-container">
+                    {% for proj in project %}
+                    <div class="col-sm-6 col-md-4 filtr-item" data-category="{{ proj.data_category }}">
+                        <a href="{% url 'project:detail' pk=proj.pk %}">
+                            <img src="{{ proj.image.url }}">
+                            <div class="overlay">
+                               <h4>{{ proj.pub_date }}<br>—</h4>
+                               <ul>
+                                   <li><h4>{{ proj.title }}</h4></li>
+                                   <li><h5>{{ proj.category }}</h5></li>
+                                   <li>{{ proj.summery }}</li>
+                               </ul>
+                           </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- latest_work_part end -->
+    
+{% endblock body %}
+
+{% block js %}
+    <!-- filterizer -->
+    <script src="{% static 'js/jquery.filterizr.min.js' %}"></script>
+{% endblock js %}

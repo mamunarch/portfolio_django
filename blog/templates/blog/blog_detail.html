@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Mamun | Blog detail
+{% endblock title %}
+
+{% block body %}
+
+    <!-- blog_part start -->
+    <section class="container-fluid blog_part blog_detail mt-5">
+        <div class="container">
+            <div class="row single_post">                
+                <div class="offset-md-1 col-sm-10 blog_post mb-0 pb-0">
+                    <h1 class="blog_title">{{ post.title }}</h1>
+                    <p class="post_info">{{ post.pub_date }}</p><br>
+                    <div class="blog_img" style="background-image: url('{{ post.image.url }}')"></div>
+                    <br>
+                    <p class="post">{{ post.descriptoin }}</p>
+                    <br><br>
+                    <p class="category_tag"><a href="#">{{ post.category }}</a> | <a href="#">{{ post.tag }}</a></p>
+                    <br>
+                    <br>
+                    <br>
+                    <div id="comments">
+                        <h5>Comments</h5>
+                        {% for comment in post.comment.all %}
+                        <div class="main_comment">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="profile_pic">
+                                        <img src="{% static 'images/human.jpg' %}" alt="">
+                                    </div>
+                                    <h4 class="posted_by">{{ comment.author }}</h4>
+                                    <p class="pub_date">03 February 2019</p>
+                                    <div class="clr"></div>
+                                    <p class="comment_post">{{ comment.text }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <hr>
+                        <div class="comment_form">
+                            <p>Leave A Comment</p><br>
+                            <form action="" method="post">
+                                <input type="text" placeholder="Name" required>
+                                <input type="text" placeholder="email" required>
+                                <textarea name="" placeholder="leave your comments here..." required></textarea>
+                                <input type="submit" value="SUBMIT" class="comment_submit" style="background: rgb(159, 128, 93);">
+                            </form>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <!-- blog_part end -->
+    
+{% endblock body %}
+

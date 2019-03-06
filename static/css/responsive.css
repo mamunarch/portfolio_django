@@ -1,0 +1,363 @@
+@media only screen and (max-width: 1200px) {
+	.common_contact_part h2 {
+        font-size: 6rem;
+        line-height: 6rem;
+    }
+    .common_banner_part {
+        height: 55vh;
+    }
+    .common_banner_part h1,
+    .common_banner_part h2 {
+        font-size: 6.5rem;
+        margin-top: 0;
+        line-height: 1.15em;
+    }
+    .common_banner_part p {
+        font-size: 4em;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+	.home_banner_part .banner_content h1 {
+        margin-top: 25vh;
+    }
+    .common_contact_part h2 {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+    .modal-body h3 {
+        font-size: 2rem;
+    }
+    .modal-body .modal_info {
+        font-size: 1.45rem;
+    }
+    .common_banner_part {
+        height: 45vh;
+        padding-top: 10vh;
+    }
+    .common_banner_part h2 {
+        font-size: 5.5rem;
+        line-height: 1.15em;
+    }
+    .common_banner_part h1 {
+        font-size: 5rem;
+    }
+    .common_banner_part p {
+        font-size: 3.5em;
+    }
+    .latest_work_part .filtr-item .overlay h4 {
+        font-size: 18px;
+    }
+    .latest_work_part .filtr-item .overlay h5 {
+        font-size: 16px;
+    }
+    .latest_work_part .filtr-item .overlay ul li {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    
+	.home_banner_part .banner_content h1 {
+        font-size: 2.1rem;
+    }
+    .home_blog_part .blog_header,
+    .home_latestwork_part .latestwork_header {
+        text-align: center;
+    }
+    .home_blog_part .blog_header .button,
+    .home_latestwork_part .latestwork_header .button {
+        position: relative;
+    }
+    .recommendation_part .recommendation_header h3,
+    .home_blog_part .blog_header h3,
+    .home_latestwork_part .latestwork_header h3 {
+        font-size: 2rem;
+    }
+    .recommendation_part .recommendation_header p,
+    .home_blog_part .blog_header p,
+    .home_latestwork_part .latestwork_header p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    .home_blog_part .blog_header .button,
+    .home_latestwork_part .latestwork_header .button {
+        padding: 10px;
+    }
+    .home_page_intro {
+        padding: 90px 20px 50px;
+    }
+    .home_page_intro p {
+        font-size: 1.5rem;
+    }
+    .service_part {
+        padding: 50px 0 0;
+    }
+    .service_part .service {
+        margin-bottom: 50px;
+    }
+    .service_part .service i  {
+        font-size: 60px;
+    }
+    .home_blog_part .blog_post .blog_title {
+        font-size: 1.8rem;
+    }
+    .common_contact_part {
+        padding: 50px 0;
+    }
+    .common_contact_part p {
+        font-size: 1.5rem;
+    }
+    .common_contact_part a {
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    .common_contact_part h2 {
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+    .common_banner_part {
+        padding-top: 15vh;
+    }
+    .common_banner_part h2 {
+        font-size: 4rem;
+        line-height: 1.15em;
+    }
+    .common_banner_part h1 {
+        font-size: 4.5rem;
+        line-height: 1.15em;
+        letter-spacing: 0.5rem;
+    }
+    .common_banner_part p {
+        font-size: 2em;
+    }
+    .home_blog_part .blog_post .post_img {
+        height: 150px;
+        padding-bottom: 20px;
+    }
+    .project_info_part .project_header {
+        padding: 0 55px 0 15px;
+    }
+    .project_info_part .project_header a {
+        display: block;
+    }
+    #project_info {
+        height: 0;
+        overflow: hidden;
+        padding: 0 15px;
+        transition: all 0.3s ease;
+    }
+    .show_filter {
+        height: inherit !important;
+    }
+    .project_info_part #project_info .project_info_section {
+        margin-bottom: 30px;
+        float: left;
+        width: 45%;
+        margin-right: 5%;
+    }
+    .project_info_part #project_info .project_info_section .project_info_label {
+        margin-bottom: 10px;
+    }
+    .project_info_part .project_img {
+        height: 250px;
+    }
+    .blog_part {
+    padding: 0px 0 30px;
+    }
+    .blog_detail {
+        margin-top: 95px !important;
+    }
+    .blog_part .side_bar {
+        height: inherit;
+        position: relative;
+        top: 45px;
+    }
+    .blog_part .side_bar .filter  {
+        display: block;;
+    }
+    .blog_part .side_bar .filter .toggle_icon {
+        display: block !important;
+    }
+    .blog_part .blog_type {
+        height: 0;
+        overflow: hidden;
+    }
+    .blog_part .blog_type .category,
+    .blog_part .blog_type .tags {
+        width: 50%;
+        float: left;
+    }
+    .blog_part .blog_type .tags {
+        margin-top: 105px;
+    }
+    .blog_part .blog_type input {
+        width: 200%;
+    }
+    .blog_part .post_container {
+        margin-left: -7.5px;
+    }
+    .latest_work_part .filtr-item .overlay h4 {
+        font-size: 20px;
+    }
+    .latest_work_part .filtr-item .overlay h5 {
+        font-size: 18px;
+    }
+    .latest_work_part .filtr-item .overlay ul li {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .home_banner_part .fa-angle-down {
+        font-size: 60px;
+        position: absolute;
+        transform: translateX(-50%);
+        bottom: 1rem;
+        left: 50%;
+    }
+    .home_latestwork_part {
+        padding-bottom: 15px;
+    }
+    .home_latestwork_part .latestwork_header {
+        margin: 0 15px 35px;
+    }
+    .home_latestwork_part .project .overlay {
+        padding: 3px;
+    }
+    .home_latestwork_part .project .overlay h4 {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .home_latestwork_part .project .overlay h5 {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    
+    
+    .service_part {
+        padding: 30px 0 0;
+    }
+    .service_part .service_title {
+        font-size: 2.4rem;
+        line-height: 4rem;
+    }
+    .service_part .service_title_p {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        margin-bottom: 20px;
+    }
+    .service_part .service i {
+        font-size: 35px;
+        padding-bottom: 15px;
+    }
+    .service_part .service .service_header {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+    .service_part .service .service_description {
+        font-size: 1.1rem;
+    }
+    
+    .common_contact_part {
+        padding: 20px 0;
+    }
+    .common_contact_part h2 {
+        font-size: 2.5rem !important;
+        line-height: 3.5rem !important;
+    }
+    .common_contact_part p {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }.common_contact_part a {
+        font-size: 1.1rem;
+        padding: 4px 12px;
+    }
+    .home_page_intro {
+        padding: 90px 20px 30px !important;
+    }
+    .common_banner_part {
+        padding-top: 15vh;
+        height: 40vh;
+    }
+    .common_banner_part h1 {
+        font-size: 3.5rem;
+        line-height: 1.15em;
+        letter-spacing: normal;
+    }
+    .common_banner_part p {
+        font-size: 2rem;
+    }
+    .common_banner_part h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    .latest_work_part .simplefilter li {
+        width: 98%;
+        padding: 0.5rem 1rem;
+        margin: 0 5px 5px;
+    }
+    .latest_work_part .filter  {
+        display: block;
+    }
+    .latest_work_part .filtr-search {
+        font-size: 18px;
+        padding: 0.7rem;
+        margin: 0 -15px 3px 5px;
+        width: 98%;
+    }
+    .latest_work_part .simplefilter,
+    .latest_work_part .search-row {
+        height: 0;
+        overflow: hidden;
+    }
+    .modal-body {
+        padding: 20px 0px 0;
+    }
+    .modal-body .contact_header {
+        margin: 0 0 25px;
+    }
+    .modal-body h3 {
+        font-size: 2rem;
+    }
+    .modal-body .modal_info {
+        font-size: 1.1rem;
+    }
+    .modal-body button {
+        font-size: 14px;
+        padding: 5px 27px;
+        border-radius: 20px;
+        margin: 10px 0 20px;
+    }
+    .contact_form label {
+        font-size: 1.2rem;
+    }
+    .contact_form #f_name, .contact_form #l_name, .contact_form #email, .contact_form #msg, .contact_form #op_type, .contact_form #p_numb {
+        padding: 10px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .contact_form .contact_submit {
+        font-size: 14px;
+        padding: 5px 30px;
+        border-radius: 20px;
+        margin: 5px 0 0px;
+    }
+    #op_category p {
+        font-size: 1.15rem;
+        margin-bottom: 20px;
+    }
+    #op_category ul li label {
+        font-size: 1.1rem;
+    }
+    #op_category textarea {
+        padding: 10px;
+        font-size: 1.1rem;
+        margin-bottom: 0; 
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    
+}

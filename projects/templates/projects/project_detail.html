@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Mamun | Project_info
+{% endblock title %}
+
+{% block body %}
+
+    <!-- project_info_part start -->
+    <section class="container_fluid project_info_part">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="project_header">
+                            <h1>{{ project.title }}</h1> <!-- title -->
+                            <h3>{{ project.client }}</h3> <!-- client name -->
+                            <a id="toggle_icon" class="toggle_icon">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="project_info">
+                            <div class="project_info_section">
+                                <p class="project_info_label">Year</p>
+                                <p class="project_info_description">{{ project.pub_date }}</p>
+                            </div>
+                            <div class="project_info_section">
+                                <p class="project_info_label">Category</p>
+                                <p class="project_info_description">{{ project.category }}</p>
+                            </div>
+                            <div class="project_info_section">
+                                <p class="project_info_label">Technologies</p>
+                                <p class="project_info_description">{{ project.technology }}</p>
+                            </div>
+                            <div class="project_info_section">
+                                <p class="project_info_label">Developement</p>
+                                <p class="project_info_description">{{ project.summery }}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="col-md-9">
+                    <a target="blank" href="{{ project.url }}">
+                        <div class="project_img" style="background-image: url('{{ project.image.url }}')">
+                            <p style="background: rgba(181, 156, 128, 0.8);">Live Preview</p>
+                        </div>
+                    </a>
+                    <p class="project_description">{{ project.description }}</p>
+                    
+                    <br>
+                    <br>
+                    <div id="comments">
+                        <h5>Comments</h5>
+
+                        {% for comment in project.comment.all %}
+                        <div class="main_comment">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="profile_pic">
+                                        <img src="{% static 'images/human.jpg' %}" alt="">
+                                    </div>
+                                    <h4 class="posted_by">{{ comment.author }}</h4>
+                                    <p class="pub_date">03 February 2019</p>
+                                    <div class="clr"></div>
+                                    <p class="comment_post">{{ comment.text }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <hr>
+                        <div class="comment_form">
+                           <p>Leave A Comment</p><br>
+                            <form action="{% url 'project:comment' pk=project.pk %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" name="author" placeholder="name" required>
+                                <input type="text" name="email" placeholder="email" required>
+                                <textarea name="" name="text" placeholder="leave your comments here..." required></textarea>
+                                <input type="submit" value="SUBMIT" class="comment_submit" style="background: rgb(159, 128, 93);">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- project_info_part end -->
+{% endblock body %}
